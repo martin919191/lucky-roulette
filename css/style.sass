@@ -3,86 +3,93 @@
     position: relative
     box-sizing: border-box
     font-family: sans-serif
-    
+
 html, body
     overflow: hidden
+    height: 100%
+    width: 100%
 
-body 
-    display: flex
-    justify-content: center
-    align-items: center
-    height: 100vh
+body
     margin: 0
     background-color: #f0f0f0
 
+input, textarea, button, select, a
+    -webkit-tap-highlight-color: transparent
+
+
 .triangle
-    position: fixed
+    position: absolute
     width: 0
     height: 0
-    z-index: 1000
+    z-index: 500
     border-left: 15px solid transparent
     border-right: 15px solid transparent
-    border-top: 30px solid red
+    border-top: 30px solid 
 
 @media (orientation: portrait)
     .roulette-container
         width: 75%
+    .menu
+        width: 60%
 
 @media (orientation: landscape)
     .roulette-container
         height: 75%
+    .menu
+        width: 30%
 
-.roulette-container
-    position: relative
-    transition: all 5s ease-in-out
-    .roulette-wheel 
-        height: 100%
-        box-shadow: 0 0 5px black
-        aspect-ratio: 1/1
-        background-color: red
-        border-radius: 50%
+.roulette-app
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    width: 100%
+    .roulette-container
         position: relative
-        overflow: hidden
-        border: 2px solid black
-        background-color: white
-    .roulette-wheel-separator
-        position: absolute
-        top: 0
-        left: 50%
-        width: 2px
-        height: calc( 50% - 1px )
-        background-color: black
-    .roulette-wheel-label
-        position: absolute
-        top: 0px
-        left: calc( 50% - 25px )
-        width: 50px
-        height: 50%
-        padding-top: 15px
-        text-align: center
-        text-transform: uppercase
-        font-family: sans-serif
-        font-weight: bold
-        
-.button-container
-    position: fixed
+        transition: all 5s ease-in-out
+        .roulette-wheel
+            height: 100%
+            box-shadow: 0 0 5px black
+            aspect-ratio: 1/1
+            background-color: red
+            border-radius: 50%
+            position: relative
+            overflow: hidden
+            border: 2px solid black
+            background-color: white
+        .roulette-wheel-separator
+            position: absolute
+            top: 0
+            left: 50%
+            width: 2px
+            height: calc( 50% - 1px )
+            background-color: black
+        .roulette-wheel-label
+            position: absolute
+            top: 0px
+            left: calc( 50% - 25px )
+            width: 50px
+            height: 50%
+            padding-top: 15px
+            text-align: center
+            text-transform: uppercase
+            font-family: sans-serif
+            font-weight: bold
+            font-size: .6em
+
+#button-spin
+    position: absolute
+    cursor: pointer
+    background-color: black
+    color: white
+    bottom: 10px
     right: 10px
-    width: 100px
-    height: 500px
-    border: 2px solid black
-    border-radius: 50px 
-    #button-spin
-        cursor: pointer
-        background-color: black
-        color: white
-        top: 0
-        position: relative
-        height: 98px
-        width: 97px
-        border: none
-        border-radius: 50px
-        font-weight: bolder
-        transition-duration: 1s
+    height: 98px
+    width: 97px
+    border: none
+    border-radius: 50px
+    font-weight: bolder
+    transition-duration: 1s
 
 #menu-button
     position: absolute
@@ -100,13 +107,14 @@ body
     background-color: #c5c5c5
     box-shadow: 0 0 2px black
 
-#menu
+.menu
+    z-index: 900
+    transition: .5s all
     padding: 10px
     padding-top: 100px
     background-color: gray
     position: absolute
     height: 100%
-    width: 20%
     left: 0
     box-shadow: 0 0 5px black
     border: 1px solid black
@@ -149,12 +157,12 @@ body
                         font-size: 1em
                         background-color: transparent
                         transition: all .25s
-                    .edit-button:hover 
+                    .edit-button:hover
                         color: #002499
                     .delete-button
                         margin-right: 10px
-                    .delete-button:hover 
-                            color: #990000
+                    .delete-button:hover
+                        color: #990000
                     .player-label
                         flex-grow: 1
                         width: calc(100% - 15px)
@@ -163,8 +171,6 @@ body
                         user-select: none
                         outline: none
                         text-transform: uppercase
-
-
         .edit-player-button-container
             display: flex
             justify-content: space-between
@@ -181,11 +187,18 @@ body
                 background-color: #c5c5c5
             .edit-player-button:first-child
                 margin-left: 0
-            .edit-player-button:last-child 
+            .edit-player-button:last-child
                 margin-right: 0
+        .button-add-player
+            width: 100%
+            border: 2px solid black
+            padding: 5px
+            margin-top: 5px
+            border-radius: 5px
+.menu-hidden
+    left: -100%
 
-
-.custom-scrollbar 
+.custom-scrollbar
     width: 300px
     height: 200px
     overflow: auto
@@ -204,3 +217,16 @@ body
 /* Style the scrollbar thumb when hovered */
 .custom-scrollbar .simplebar-scrollbar:hover::before
     background: #1e87d5
+
+.fs-1-0em
+    font-size: 1em
+.fs-0-9em
+    font-size: .9em
+.fs-0-8em
+    font-size: .8em
+.fs-0-7em
+    font-size: .7em
+.fs-0-6em
+    font-size: .6em
+.fs-0-5em
+    font-size: .5em

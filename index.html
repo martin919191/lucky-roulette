@@ -3,40 +3,67 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css">
 </head>
 
 <body>
-    <div id="triangle" class="triangle"></div>
     <button id="menu-button"><i class="fas fa-bars"></i></button>
-    <div id="menu">
+    <div id="menu" class="menu menu-hidden">
         <div id="edit-players">
             <h1>EDIT PLAYERS</h1>
             <div class="players-list">
-                <div class="player-list-scroll">
-                    <div id="player_0" class="player">
+                <div class="player-list-scroll" id="player-list-scroll">
+                    <!--div id="player_0" class="player">
                         <button id="player_0-edit" class="modify-player-button edit-button"><i class="fas fa-pencil-alt"></i></button>
                         <button id="player_0-delete" class="modify-player-button delete-button"><i class="fas fa-trash-alt"></i></button>
-                        <input  id="player_0-label" class="player-label" type="text" value="Player 1" disabled>
+                        <input id="player_0-label" class="player-label" type="text" value="Player 1" disabled>
                     </div>
                     <div id="player_1" class="player">
-                        <button id="player_1-edit" class="modify-player-button edit-button"><i class="fas fa-pencil-alt"></i></button>
-                        <button id="player_1-delete" class="modify-player-button delete-button"><i class="fas fa-trash-alt"></i></button>
-                        <input  id="player_1-label" class="player-label" type="text" value="Player 2" disabled>
+                        <button id="player_1-edit" class="modify-player-button edit-button"><i
+                                class="fas fa-pencil-alt"></i></button>
+                        <button id="player_1-delete" class="modify-player-button delete-button"><i
+                                class="fas fa-trash-alt"></i></button>
+                        <input id="player_1-label" class="player-label" type="text" value="Player 2" disabled>
                     </div>
+                    <div id="player_2" class="player">
+                        <button id="player_2-edit" class="modify-player-button edit-button"><i
+                                class="fas fa-pencil-alt"></i></button>
+                        <button id="player_2-delete" class="modify-player-button delete-button"><i
+                                class="fas fa-trash-alt"></i></button>
+                        <input id="player_2-label" class="player-label" type="text" value="Player 3" disabled>
+                    </div>
+                    <div id="player_3" class="player">
+                        <button id="player_3-edit" class="modify-player-button edit-button"><i
+                                class="fas fa-pencil-alt"></i></button>
+                        <button id="player_3-delete" class="modify-player-button delete-button"><i
+                                class="fas fa-trash-alt"></i></button>
+                        <input id="player_3-label" class="player-label" type="text" value="Player 4" disabled>
+                    </div>
+                    <div id="player_4" class="player">
+                        <button id="player_4-edit" class="modify-player-button edit-button"><i
+                                class="fas fa-pencil-alt"></i></button>
+                        <button id="player_4-delete" class="modify-player-button delete-button"><i
+                                class="fas fa-trash-alt"></i></button>
+                        <input id="player_4-label" class="player-label" type="text" value="Player 5" disabled>
+                    </div-->
                 </div>
+            </div>
+            <button class="button-add-player" id="button-add-player">ADD PLAYER</button>
+        </div>
+    </div>
+
+    <div class="roulette-app">
+        <div id="triangle" class="triangle"></div>
+        <div class="roulette-container" id="roulette-container">
+            <div class="roulette-wheel" id="roulette-wheel">
             </div>
         </div>
     </div>
-    <div class="roulette-container" id="roulette-container">
-        <div class="roulette-wheel" id="roulette-wheel">
-        </div>
-    </div>
-    <div class="button-container">
-        <button id="button-spin">SPIN</button>
-    </div>
+
+    <button id="button-spin">SPIN</button>
 
     <script src="js/jquery.keyframes.min.js"></script>
     <script src="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.js"></script>

@@ -6,42 +6,57 @@
 
 html, body {
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
 }
 
+input, textarea, button, select, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .triangle {
-  position: fixed;
+  position: absolute;
   width: 0;
   height: 0;
-  z-index: 1000;
+  z-index: 500;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 30px solid red;
+  border-top: 30px solid;
 }
 
 @media (orientation: portrait) {
   .roulette-container {
     width: 75%;
   }
+  .menu {
+    width: 60%;
+  }
 }
 @media (orientation: landscape) {
   .roulette-container {
     height: 75%;
   }
+  .menu {
+    width: 30%;
+  }
 }
-.roulette-container {
+.roulette-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.roulette-app .roulette-container {
   position: relative;
   transition: all 5s ease-in-out;
 }
-.roulette-container .roulette-wheel {
+.roulette-app .roulette-container .roulette-wheel {
   height: 100%;
   box-shadow: 0 0 5px black;
   aspect-ratio: 1/1;
@@ -52,7 +67,7 @@ body {
   border: 2px solid black;
   background-color: white;
 }
-.roulette-container .roulette-wheel-separator {
+.roulette-app .roulette-container .roulette-wheel-separator {
   position: absolute;
   top: 0;
   left: 50%;
@@ -60,7 +75,7 @@ body {
   height: calc(50% - 1px);
   background-color: black;
 }
-.roulette-container .roulette-wheel-label {
+.roulette-app .roulette-container .roulette-wheel-label {
   position: absolute;
   top: 0px;
   left: calc(50% - 25px);
@@ -71,22 +86,16 @@ body {
   text-transform: uppercase;
   font-family: sans-serif;
   font-weight: bold;
+  font-size: 0.6em;
 }
 
-.button-container {
-  position: fixed;
-  right: 10px;
-  width: 100px;
-  height: 500px;
-  border: 2px solid black;
-  border-radius: 50px;
-}
-.button-container #button-spin {
+#button-spin {
+  position: absolute;
   cursor: pointer;
   background-color: black;
   color: white;
-  top: 0;
-  position: relative;
+  bottom: 10px;
+  right: 10px;
   height: 98px;
   width: 97px;
   border: none;
@@ -114,28 +123,29 @@ body {
   box-shadow: 0 0 2px black;
 }
 
-#menu {
+.menu {
+  z-index: 900;
+  transition: 0.5s all;
   padding: 10px;
   padding-top: 100px;
   background-color: gray;
   position: absolute;
   height: 100%;
-  width: 20%;
   left: 0;
   box-shadow: 0 0 5px black;
   border: 1px solid black;
   border-radius: 0 5px 5px 0;
 }
-#menu #edit-players {
+.menu #edit-players {
   width: 100%;
 }
-#menu #edit-players h1 {
+.menu #edit-players h1 {
   text-align: center;
   margin: 0;
   margin-bottom: 5px;
   font-size: 1.25em;
 }
-#menu #edit-players .players-list {
+.menu #edit-players .players-list {
   padding: 0px;
   border: 1px solid black;
   max-height: 300px;
@@ -146,10 +156,10 @@ body {
   height: 300px;
   overflow: hidden;
 }
-#menu #edit-players .players-list .player-list-scroll {
+.menu #edit-players .players-list .player-list-scroll {
   max-height: 300px;
 }
-#menu #edit-players .players-list .player-list-scroll .player {
+.menu #edit-players .players-list .player-list-scroll .player {
   text-align: center;
   background-color: #a8a8a8;
   margin: 5px;
@@ -163,7 +173,7 @@ body {
   display: flex;
   align-items: center;
 }
-#menu #edit-players .players-list .player-list-scroll .player .modify-player-button {
+.menu #edit-players .players-list .player-list-scroll .player .modify-player-button {
   background-color: blue;
   color: #000000;
   border: none;
@@ -172,16 +182,16 @@ body {
   background-color: transparent;
   transition: all 0.25s;
 }
-#menu #edit-players .players-list .player-list-scroll .player .edit-button:hover {
+.menu #edit-players .players-list .player-list-scroll .player .edit-button:hover {
   color: #002499;
 }
-#menu #edit-players .players-list .player-list-scroll .player .delete-button {
+.menu #edit-players .players-list .player-list-scroll .player .delete-button {
   margin-right: 10px;
 }
-#menu #edit-players .players-list .player-list-scroll .player .delete-button:hover {
+.menu #edit-players .players-list .player-list-scroll .player .delete-button:hover {
   color: #990000;
 }
-#menu #edit-players .players-list .player-list-scroll .player .player-label {
+.menu #edit-players .players-list .player-list-scroll .player .player-label {
   flex-grow: 1;
   width: calc(100% - 15px);
   background-color: transparent;
@@ -192,12 +202,12 @@ body {
   outline: none;
   text-transform: uppercase;
 }
-#menu #edit-players .edit-player-button-container {
+.menu #edit-players .edit-player-button-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-#menu #edit-players .edit-player-button-container .edit-player-button {
+.menu #edit-players .edit-player-button-container .edit-player-button {
   padding: 5px;
   flex: 1;
   border-radius: 5px;
@@ -206,14 +216,25 @@ body {
   margin: 2px;
   transition: all 0.5s;
 }
-#menu #edit-players .edit-player-button-container .edit-player-button:hover {
+.menu #edit-players .edit-player-button-container .edit-player-button:hover {
   background-color: #c5c5c5;
 }
-#menu #edit-players .edit-player-button-container .edit-player-button:first-child {
+.menu #edit-players .edit-player-button-container .edit-player-button:first-child {
   margin-left: 0;
 }
-#menu #edit-players .edit-player-button-container .edit-player-button:last-child {
+.menu #edit-players .edit-player-button-container .edit-player-button:last-child {
   margin-right: 0;
+}
+.menu #edit-players .button-add-player {
+  width: 100%;
+  border: 2px solid black;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.menu-hidden {
+  left: -100%;
 }
 
 .custom-scrollbar {
@@ -238,4 +259,28 @@ body {
 /* Style the scrollbar thumb when hovered */
 .custom-scrollbar .simplebar-scrollbar:hover::before {
   background: #1e87d5;
+}
+
+.fs-1-0em {
+  font-size: 1em;
+}
+
+.fs-0-9em {
+  font-size: 0.9em;
+}
+
+.fs-0-8em {
+  font-size: 0.8em;
+}
+
+.fs-0-7em {
+  font-size: 0.7em;
+}
+
+.fs-0-6em {
+  font-size: 0.6em;
+}
+
+.fs-0-5em {
+  font-size: 0.5em;
 }/*# sourceMappingURL=style.css.map */
