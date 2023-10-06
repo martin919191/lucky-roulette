@@ -182,14 +182,8 @@ input, textarea, button, select, a {
   background-color: transparent;
   transition: all 0.25s;
 }
-.menu #edit-players .players-list .player-list-scroll .player .edit-button:hover {
-  color: #002499;
-}
 .menu #edit-players .players-list .player-list-scroll .player .delete-button {
   margin-right: 10px;
-}
-.menu #edit-players .players-list .player-list-scroll .player .delete-button:hover {
-  color: #990000;
 }
 .menu #edit-players .players-list .player-list-scroll .player .player-label {
   flex-grow: 1;
