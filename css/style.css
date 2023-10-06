@@ -1,5 +1,7 @@
 * {
+  position: relative;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 html, body {
@@ -41,6 +43,7 @@ body {
 }
 .roulette-container .roulette-wheel {
   height: 100%;
+  box-shadow: 0 0 5px black;
   aspect-ratio: 1/1;
   background-color: red;
   border-radius: 50%;
@@ -86,9 +89,153 @@ body {
   position: relative;
   height: 98px;
   width: 97px;
-  transition: all 0.5s;
   border: none;
   border-radius: 50px;
   font-weight: bolder;
   transition-duration: 1s;
+}
+
+#menu-button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 50px;
+  width: 50px;
+  z-index: 1000;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  box-shadow: 0 0 5px black;
+  transition: all 0.25s;
+}
+
+#menu-button:hover {
+  background-color: #c5c5c5;
+  box-shadow: 0 0 2px black;
+}
+
+#menu {
+  padding: 10px;
+  padding-top: 100px;
+  background-color: gray;
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  left: 0;
+  box-shadow: 0 0 5px black;
+  border: 1px solid black;
+  border-radius: 0 5px 5px 0;
+}
+#menu #edit-players {
+  width: 100%;
+}
+#menu #edit-players h1 {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 1.25em;
+}
+#menu #edit-players .players-list {
+  padding: 0px;
+  border: 1px solid black;
+  max-height: 300px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px inset black;
+  margin-bottom: 2px;
+  height: 300px;
+  overflow: hidden;
+}
+#menu #edit-players .players-list .player-list-scroll {
+  max-height: 300px;
+}
+#menu #edit-players .players-list .player-list-scroll .player {
+  text-align: center;
+  background-color: #a8a8a8;
+  margin: 5px;
+  margin-bottom: 0;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: flex;
+  align-items: center;
+}
+#menu #edit-players .players-list .player-list-scroll .player .modify-player-button {
+  background-color: blue;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: transparent;
+  transition: all 0.25s;
+}
+#menu #edit-players .players-list .player-list-scroll .player .edit-button:hover {
+  color: #002499;
+}
+#menu #edit-players .players-list .player-list-scroll .player .delete-button {
+  margin-right: 10px;
+}
+#menu #edit-players .players-list .player-list-scroll .player .delete-button:hover {
+  color: #990000;
+}
+#menu #edit-players .players-list .player-list-scroll .player .player-label {
+  flex-grow: 1;
+  width: calc(100% - 15px);
+  background-color: transparent;
+  border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  outline: none;
+  text-transform: uppercase;
+}
+#menu #edit-players .edit-player-button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#menu #edit-players .edit-player-button-container .edit-player-button {
+  padding: 5px;
+  flex: 1;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.5s;
+}
+#menu #edit-players .edit-player-button-container .edit-player-button:hover {
+  background-color: #c5c5c5;
+}
+#menu #edit-players .edit-player-button-container .edit-player-button:first-child {
+  margin-left: 0;
+}
+#menu #edit-players .edit-player-button-container .edit-player-button:last-child {
+  margin-right: 0;
+}
+
+.custom-scrollbar {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #3498db transparent;
+  box-shadow: 0 0 5px black inset;
+}
+
+/* Style the scrollbar track */
+.custom-scrollbar .simplebar-track {
+  background: #f0f0f0;
+}
+
+/* Style the scrollbar thumb */
+.custom-scrollbar .simplebar-scrollbar::before {
+  background: #3498db;
+}
+
+/* Style the scrollbar thumb when hovered */
+.custom-scrollbar .simplebar-scrollbar:hover::before {
+  background: #1e87d5;
 }/*# sourceMappingURL=style.css.map */
