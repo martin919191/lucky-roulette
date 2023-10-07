@@ -58,7 +58,6 @@ input, textarea, button, select, a {
 }
 .roulette-app .roulette-container .roulette-wheel {
   height: 100%;
-  box-shadow: 0 0 5px black;
   aspect-ratio: 1/1;
   background-color: red;
   border-radius: 50%;
@@ -66,6 +65,7 @@ input, textarea, button, select, a {
   overflow: hidden;
   border: 2px solid black;
   background-color: white;
+  transition: 0.75s all;
 }
 .roulette-app .roulette-container .roulette-wheel-separator {
   position: absolute;
@@ -116,11 +116,6 @@ input, textarea, button, select, a {
   cursor: pointer;
   box-shadow: 0 0 5px black;
   transition: all 0.25s;
-}
-
-#menu-button:hover {
-  background-color: #c5c5c5;
-  box-shadow: 0 0 2px black;
 }
 
 .menu {
@@ -196,35 +191,13 @@ input, textarea, button, select, a {
   outline: none;
   text-transform: uppercase;
 }
-.menu #edit-players .edit-player-button-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.menu #edit-players .edit-player-button-container .edit-player-button {
-  padding: 5px;
-  flex: 1;
-  border-radius: 5px;
-  border: 2px solid black;
-  cursor: pointer;
-  margin: 2px;
-  transition: all 0.5s;
-}
-.menu #edit-players .edit-player-button-container .edit-player-button:hover {
-  background-color: #c5c5c5;
-}
-.menu #edit-players .edit-player-button-container .edit-player-button:first-child {
-  margin-left: 0;
-}
-.menu #edit-players .edit-player-button-container .edit-player-button:last-child {
-  margin-right: 0;
-}
 .menu #edit-players .button-add-player {
   width: 100%;
   border: 2px solid black;
   padding: 5px;
   margin-top: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .menu-hidden {

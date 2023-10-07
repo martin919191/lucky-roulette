@@ -50,6 +50,7 @@ function spin() {
     $('#button-spin').css('background-color', 'gray');
     $('#button-spin').css('color', 'black');
     $('#button-spin').text('...');
+    $('#roulette-wheel').css('box-shadow', '0 0 10px black');
 
     $.keyframe.define([{
         name: 'roulette',
@@ -74,6 +75,7 @@ function spin() {
             $('#button-spin').text('SPIN');
             $('#button-spin').css('background-color', 'black');
             $('#button-spin').css('color', 'white');
+            $('#roulette-wheel').css('box-shadow', 'none');
             lastDegrees = toDegrees;
         }
     });
